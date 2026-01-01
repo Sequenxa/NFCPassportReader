@@ -5,7 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "NFCPassportReader",
-    platforms: [.iOS("15.0"), .macOS(.v10_15)],
+    platforms: [.iOS("15.0")],
+    // Note: macOS is NOT supported - Core NFC is iOS-only
+    // The library uses #if !os(macOS) guards for iOS-specific code
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
@@ -32,4 +34,3 @@ let package = Package(
             ]),
     ]
 )
-
